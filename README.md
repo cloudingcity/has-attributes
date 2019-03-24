@@ -8,12 +8,12 @@ A trait to give class attributes
 
 ## Features
 
-- Give class attributes.
-- Define attributes type.
+- Give class attributes with array.
+- Define attributes strict type.
 
 ## Quick Example
 
-Just use HasAttributes trait and pass key value array to constructor
+Just use `HasAttributes` trait and pass key value array to constructor
 ```php
 class Post
 {
@@ -69,21 +69,21 @@ echo $zoo->number;            // 100
 echo get_class($zoo->animal); // Pig
 ```
 
-If you declare $define property, it will check type strictly
+If you declare `$define` property, it will check type strictly
 ```php
 new Zoo(['name' => 999]);
 
-// InvalidArgumentException: Value [999] is not equals to define type [string] 
+// InvalidArgumentException: [name => 999] value is not equal to define type [string] 
 ```
 
-And can't set key that are not defined
+And can't set key that is not defined
 ```php
 new Zoo(['foo' => 'bar']);
 
 // InvalidArgumentException: Key [foo] is not defined 
 ```
 
-Supported type:
+Supported `$define` type:
 
 - `string`
 - `int`, `integer`
