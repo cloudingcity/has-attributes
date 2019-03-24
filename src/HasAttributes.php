@@ -143,6 +143,25 @@ trait HasAttributes
     }
 
     /**
+     * Get attributes.
+     *
+     * @param mixed $keys
+     * @return array
+     */
+    public function getAttributes($keys)
+    {
+        $keys = is_array($keys) ? $keys : func_get_args();
+
+        $attributes = [];
+
+        foreach ($keys as $key) {
+            $attributes[$key] = $this->getAttribute($key);
+        }
+
+        return $attributes;
+    }
+
+    /**
      * Dynamic get attribute.
      *
      * @param string $key

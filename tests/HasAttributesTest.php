@@ -88,6 +88,26 @@ class HasAttributesTest extends TestCase
         $this->assertSame('red', $class->getAttribute('color', 'red'));
     }
 
+    public function testGetAttributes()
+    {
+        $class = new class()
+        {
+            use HasAttributes;
+        };
+
+        $class->setAttribute('color', 'red');
+        $class->setAttribute('fruit', 'apple');
+
+        $this->assertEquals(
+            $class->getAttributes('color', 'fruit'),
+            ['color' => 'red', 'fruit' => 'apple']
+        );
+        $this->assertEquals(
+            $class->getAttributes(['color', 'fruit']),
+            ['color' => 'red', 'fruit' => 'apple']
+        );
+    }
+
     public function testDynamicGetAttribute()
     {
         $class = new class([

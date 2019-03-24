@@ -93,5 +93,53 @@ Supported `$define` type:
 - `real`, `float`, `double`
 - Class, Interface
 
+### Set attributes
 
+There have many way to set attributes
+```php
+class Person
+{
+    use \Clouding\HasAttributes\HasAttributes;
+}
+
+$person = new Person([
+    'id' => 100,
+]);
+
+$person->setAttributes([
+    'name' => 'Marry',
+    'phone' => '0912345678'
+]);
+
+$person->setAttribute('sex', 'female');
+
+$person->age = 18;
+
+echo $person->id;    // 100
+echo $person->name;  // Marry
+echo $person->phone; // 0912345678
+echo $person->sex;   // female
+echo $person->age;   // 18
+```
+
+### Get attributes
+```php
+class Person
+{
+    use \Clouding\HasAttributes\HasAttributes;
+}
+
+$person = new Person([
+    'id' => 100,
+    'name' => 'Jack',
+]);
+
+echo $person->getAttribute('id');                 // 100
+
+echo $person->getAttribute('salary', 0);          // 0 (if key not exists return default value)
+
+var_dump($person->getAttributes('id', 'name'));   // ['id' => 100, 'name' => 'Jack']
+
+var_dump($person->getAttributes(['id', 'name'])); // ['id' => 100, 'name' => 'Jack']
+```
 
