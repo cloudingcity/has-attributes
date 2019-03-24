@@ -71,26 +71,26 @@ trait HasAttributes
 
         switch ($define) {
             case 'string':
-                $this->checkAttributeType('string', $value);
+                $this->checkAttributeType('string', $key, $value);
                 return;
             case 'int':
             case 'integer':
-                $this->checkAttributeType('integer', $value);
+                $this->checkAttributeType('integer', $key, $value);
                 return;
             case 'bool':
             case 'boolean':
-                $this->checkAttributeType('boolean', $value);
+                $this->checkAttributeType('boolean', $key, $value);
                 return;
             case 'object':
-                $this->checkAttributeType('object', $value);
+                $this->checkAttributeType('object', $key, $value);
                 return;
             case 'array':
-                $this->checkAttributeType('array', $value);
+                $this->checkAttributeType('array', $key, $value);
                 return;
             case 'real':
             case 'float':
             case 'double':
-                $this->checkAttributeType('double', $value);
+                $this->checkAttributeType('double', $key, $value);
                 return;
         }
 
@@ -103,10 +103,12 @@ trait HasAttributes
             if (is_object($value)) {
                 $className = get_class($value);
 
-                throw new InvalidArgumentException("Object [$className] is not instance of define class [$define]");
+                throw new InvalidArgumentException(
+                    "[$key => $className] class is not instance of define class [$define]"
+                );
             }
 
-            throw new InvalidArgumentException("Value [$value] is not instance of define class [$define]");
+            throw new InvalidArgumentException("[$key => $value] value is not instance of define class [$define]");
         }
 
         throw new InvalidArgumentException("Define type [$define] is not supported");
@@ -116,15 +118,16 @@ trait HasAttributes
      * Check attribute type is correct.
      *
      * @param string $type
+     * @param string $key
      * @param mixed  $value
      */
-    protected function checkAttributeType(string $type, $value)
+    protected function checkAttributeType(string $type, string $key, $value)
     {
         if (gettype($value) === $type) {
             return;
         }
 
-        throw new InvalidArgumentException("Value [$value] is not equals to define type [$type]");
+        throw new InvalidArgumentException("[$key => $value] value is not equal to define type [$type]");
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Clouding\HasAttributes\Tests;
@@ -166,7 +167,7 @@ class HasAttributesTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Value [123] is not equals to define type [string]');
+        $this->expectExceptionMessage('[color => 123] value is not equal to define type [string]');
 
         $class->setAttribute('color', 123);
     }
@@ -184,7 +185,7 @@ class HasAttributesTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'Object [stdClass] is not instance of define class [Clouding\HasAttributes\Tests\Eatable]'
+            '[pig => stdClass] class is not instance of define class [Clouding\HasAttributes\Tests\Eatable]'
         );
 
         $class->setAttribute('pig', new stdClass());
@@ -203,7 +204,7 @@ class HasAttributesTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'Value [eat] is not instance of define class [Clouding\HasAttributes\Tests\Eatable]'
+            '[pig => eat] value is not instance of define class [Clouding\HasAttributes\Tests\Eatable]'
         );
 
         $class->setAttribute('pig', 'eat');
