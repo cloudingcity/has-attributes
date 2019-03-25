@@ -54,7 +54,6 @@ trait HasAttributes
      * Check key is valid.
      *
      * @param string $key
-     *
      * @param mixed  $value
      */
     protected function checkAttribute(string $key, $value)
@@ -135,7 +134,7 @@ trait HasAttributes
      *
      * @param string $key
      * @param null   $default
-     * @return mixed|null
+     * @return mixed
      */
     public function getAttribute(string $key, $default = null)
     {
@@ -165,7 +164,7 @@ trait HasAttributes
      * Dynamic get attribute.
      *
      * @param string $key
-     * @return mixed|null
+     * @return mixed
      */
     public function __get(string $key)
     {
