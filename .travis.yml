@@ -19,7 +19,6 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 notifications:
-  email:
-    recipients:
-      - ghost0436@gmail.com
-    on_failure: always
+  email: false
+  slack:
+    - secure: rTEw2ky1gjw1JnGmvVk9dYifnI3exqP1KEpPHytoNj9cm+CPIsVTrVdCOt1AT2LQ2BdKHc6J/vJloTUBl6Udtj0eozfC82oK0VmiBXTYoIFUpUB1S3kHAMXepGRHiEwnnORPOxdMT+v3r2qnXBji6ThcD4sJa7rop6Q5O3OK3a9W5QIaj6OHU/8jZPS495HIcSJfnJNlB184OfcebO+3ymMzB7v1OIVsHGuBqYSwyTPYMSUu5z7V7YVUxJGqQW6pCvlvj09X0rOv3NcDLP4fLcQDT25U8xSluhVfZ426KuAeLwIVt7Q4Px1lfnD3nwm6RGRFfISonbCrGFJvUt/s1WOMW/d6dDr3O1st+llQeoX5O4m8Hio2pDaCDuMbTGVW6RiMWTvwQGlaJQ8B//sm5donkkhA9o19GIu1ShvMfbNFoJTA2Z2xJHmJLOvICsQK3KH8rH8k5doU/m7VUsAMGV1qhoUnUFylDsdpUrtKWWrtbOXltWLmsxVKqoIaXMheP2tDBEmIfiiQZBppSsn7Xf9p3Y/uOn/m5vjKJPaWp6l9myK9fSlJVfVdnc/jwGJ6CvTsUoxbOanzm1weo5O0fgHmuGw2yQ/aFJpgDJD8+tygkI8zWXC4sV7FD6bG2h5OaNo6KCWH0fa6DtaNUSza987FLSye0cAOrVlvK9VpyI4=
